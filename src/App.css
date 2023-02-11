@@ -1,38 +1,251 @@
+* {
+  box-sizing: border-box;
+  margin: 0px; 
+  padding: 0px; 
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background: rgb(141, 141, 141);
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+   
+
+}
+
+#drum-machine {
+  height: 445px; 
+  width: 75%; 
+  border: 3px solid rgb(253, 165, 1);
+  background: rgb(179, 179, 179);
+}
+
+#drum-pad {
+  height: 200px; 
+  width: 200px; 
+ 
+  background: rgb(179, 179, 179);
+  margin: 0 auto;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px; 
+  justify-content: center;
+  align-items: center;
+}
+
+#drum-pad * {
+  background: rgb(128, 128, 128);
+  padding: 20px;
+  box-shadow: 1px 1px 5px rgb(38, 38, 38);
+  width: 75px;
+  border-radius: 5px; 
+  font-weight: bold;
+}
+
+#audio-file {
+  background: red;
+  height: 200px; 
+  width: 200px;
+}
+
+#display {
+  height: 35px; 
+  width: 140px;
+  margin: auto auto;
+  margin-top: 20px;
+  background: rgb(128, 128, 128);
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  padding-top: 0px;
+  border-radius: 0px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Switch */
+
+#display_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+#switchTitle {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 2.5px;
+  font-family: "Russo One", sans-serif;
+}
+
+#power {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: -10px;
+  flex-direction: column;
+
+}
+
+#switch {
+  background: black; 
+  height: 20px; 
+  width: 40px;
+  position: relative;
+}
+
+#blueInnerSwitch {
+  background: blue; 
+  height: 15px; 
+  width: 15px;
+  z-index: 2;
+  margin-left: 0px;
+}
+
+.on {
+  position: absolute;
+  top: 2px;
+  right: 2.5px;
+}
+
+.off {
+  position: absolute;
+  top: 2px;
+  left: 2.5px;
+}
+
+/* Volume */
+
+#volume {
+  -webkit-appearance: none;
+  margin-top: 20px;
+  width: 175px;
+}
+
+#volume::-webkit-slider-runnable-track{
+  -webkit-appearance: none;
+  background: rgb(66,66,66);
+  height: 4.25px;
+  box-shadow: 2.5px 2.5px 2.5px rgb(10, 10, 10);
+
+}
+
+#volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: blue;
+  height: 20px;
+  width: 6px;
+  
+  margin-top: -5.75px;
+}
+
+/* Bank */
+
+#bank {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: -10px;
+  flex-direction: column;
+}
+
+#bankSwitchTitle {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 0px;
+  font-family: "Russo One", sans-serif;
+}
+
+
+@media (min-width: 600px) {
+  #drum-machine {
+    width: 650px; 
+    height: 350px;
+    display: flex; 
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center; 
+    gap: 100px;
+   
   }
-  to {
-    transform: rotate(360deg);
+
+  #drum-pad {
+    margin: 0px;
+    margin-top: -50px;
+    margin-left: 50px;
   }
+
+  #drum-pad * {
+    margin: 0px;
+    padding: 0px;
+    width: 100px;
+    height: 75px;
+  }
+
+  .keypressed{
+    background: orange !important;
+    box-shadow: none;
+  }
+
+  .keyreleased{
+    background: rgb(128, 128, 128);
+    box-shadow: 1px 1px 5px rgb(38, 38, 38);
+  }
+
+  #display_container {
+    margin-top: -50px !important;
+  }
+
+  #display {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+  }
+
+  #display_container {
+    flex-direction: column;
+    margin: 0;
+  }
+
+  #power {
+    font-size: 100px !important;
+  }
+
+  #switchTitle, #bankSwitchTitle {
+    font-size: 20px;
+  }
+
+  #switch {
+    height: 25px;
+    width: 50px;
+    position: relative;
+  }
+
+  #blueInnerSwitch {
+    height: 17.5px;
+    width: 20px;
+    position: absolute;
+    top: 2.5px;
+  }
+
+  #volume {
+    width: 225px;
+  }
+
+  #volume::-webkit-slider-thumb {
+    height: 25px;
+    width: 8px;
+    margin-top: -7.5px;
+  }
+
 }
